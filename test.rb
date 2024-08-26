@@ -151,7 +151,10 @@ is_isogram("isIsogram")
 is_isogram("")
 =end
 
-=begin def XO(str)
+
+
+=begin 
+def XO(str)
 
   #str.scan(/[xo]/i).length.even? #positive lookahead
   #str.scan(/[^xo]/i) #negative lookahead
@@ -167,5 +170,8 @@ end
 XO('xxxoo')
 XO('xxxoo')
 XO('xxOo')
-XO('zpzpzpzpzp')
+XO('zpzpzpzpzp') 
 =end
+
+
+
