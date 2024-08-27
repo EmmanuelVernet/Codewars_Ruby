@@ -1,6 +1,8 @@
 
 #comment
-# multi comment short cut in VS code => shift + option + A
+# multi comment short cut in VS code => shift + option + A OR shift + alt +A
+# ctrl + J -> opens and closes terminal + focus
+#ctrl + alt + N -> runs file in terminal
 =begin
   multine comment
   "string #{}"
@@ -173,6 +175,7 @@ XO('xxOo')
 XO('zpzpzpzpzp')
 =end
 
+=begin 
 def is_square(x)
   if x == 0
     puts true
@@ -182,7 +185,15 @@ def is_square(x)
     puts Math.sqrt(x) % 1 == 0
   end
 end
+
+#Better solution
+def is_square(x)
+  x < 0 ? false : Math.sqrt(x) % 1 == 0
+end
+
 #is_square  (0)
 #is_square  (3)
 is_square (4)
 #is_square (26)
+=end
+
