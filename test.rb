@@ -153,7 +153,7 @@ is_isogram("")
 
 
 
-=begin 
+=begin
 def XO(str)
 
   #str.scan(/[xo]/i).length.even? #positive lookahead
@@ -170,8 +170,19 @@ end
 XO('xxxoo')
 XO('xxxoo')
 XO('xxOo')
-XO('zpzpzpzpzp') 
+XO('zpzpzpzpzp')
 =end
 
-
-
+def is_square(x)
+  if x == 0
+    puts true
+  elsif x == -1
+    puts false
+  elsif x >= 0
+    puts Math.sqrt(x) % 1 == 0
+  end
+end
+#is_square  (0)
+#is_square  (3)
+is_square (4)
+#is_square (26)
