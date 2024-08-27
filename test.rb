@@ -7,7 +7,11 @@
   multine comment
   "string #{}"
 =end
-
+=begin 
+Opening and closing left panel for file structure
+Ctrl + B // Windows and Linux
+Cmd + B // Mac
+=end
 
 =begin
 print "Thtring, pleathe!: "
@@ -196,4 +200,32 @@ end
 is_square (4)
 #is_square (26)
 =end
+
+=begin 
+def accum(s)
+  # for the length of the string, multiply letter*(index*1). You need to loop over the string and get the index with each_with_index
+	puts s.chars.each_with_index.map{ |letter, index| (letter*(index+1)).capitalize }.join("-")
+  
+end
+
+accum("ZpglnRxqenU")
+#accum("NyffsGeyylB")
+#accum("MjtkuBovqrU")
+#accum("EvidjUnokmM")
+#accum("HbideVbxncC") 
+=end
+
+
+class String
+  def toJadenCase
+    self.split(" ").map{|word| word.capitalize}.join(" ")
+  end
+end
+
+str = "How can mirrors be real if our eyes aren't real";
+puts str.toJadenCase()
+
+
+
+
 
