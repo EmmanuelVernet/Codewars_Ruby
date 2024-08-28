@@ -216,6 +216,7 @@ accum("ZpglnRxqenU")
 =end
 
 
+=begin 
 class String
   def toJadenCase
     self.split(" ").map{|word| word.capitalize}.join(" ")
@@ -224,8 +225,69 @@ end
 
 str = "How can mirrors be real if our eyes aren't real";
 puts str.toJadenCase()
+=end
+
+=begin 
+def maskify(cc)
+  # your beautiful code goes here
+  if cc.length > 4
+    cc[0..-5] = "#"*(cc.length-4)+cc[-4..-1] 
+    # cc[0..-5] = "from the first character (index 0) to the fifth-to-last character". You start at -1 and not -0. 
+    # cc[0..-5] gives us the substring "123456" (all but the last 4 characters).
+    # cc.length-4 gives us the number 6 (10 minus 4).
+  else
+    cc
+  end
+end
+
+#better solution
+def maskify(cc)
+  puts cc.chars.each_with_index.map{|x,i| i < cc.length - 4 ? '#' : x}.join
+end
 
 
+maskify('4556364607935616')
+maskify('1')
+maskify('11111')
+maskify('111111') 
+=end
+
+=begin 
+def sum_two_smallest_numbers(numbers)
+  #Your code here
+  numbers = numbers.sort
+  return numbers[0..1].sum
+end
+
+#other solution
+def sum_two_smallest_numbers(numbers)
+  #Your code here
+  return numbers.min(2).sum
+end
+
+sum_two_smallest_numbers([25, 42, 71, 12, 18, 22]) 
+=end
+
+=begin def to_camel_case(str)
+  if str.empty?
+    return str    
+  elsif str[0] == str[0].downcase
+    arr = str.split(/[^a-zA-Z]+/)
+    arr[1..-1] = arr[1..-1].map(&:capitalize)
+    p arr.join
+  else
+    p str.split(/[^a-zA-Z]+/).map(&:capitalize).join
+  end
+end 
+
+
+#better solution
+def to_camel_case(str)
+  p str.split(/[^a-zA-Z]+/).each_with_index.map { |word, i| i == 0 && str[0] == str[0].downcase ? word : word.capitalize }.join
+end
+
+to_camel_case("the_stealth_warrior")
+=end
 
 
 
