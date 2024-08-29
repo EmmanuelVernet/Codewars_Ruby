@@ -290,4 +290,46 @@ to_camel_case("the_stealth_warrior")
 =end
 
 
+=begin 
+def solution(str)
+  # your code here
+  if str.length == 0
+    p [] 
+  elsif str.length.odd?
+    str = str+"_"
+    p str.chars.each_slice(2).map(&:join)
+  else
+    p str.chars.each_slice(2).map(&:join)
+  end
+
+end
+
+# two solutions for better splitting pairs
+def solution str
+  (str + '_').scan /../ # Here you always add the underscore but only output character pairs in array
+end
+
+def solution(str)
+  str.chars.each_slice(2).map { |d| d.length == 2 ? d.join : d.join+'_' }
+end
+
+solution("abc")
+solution("abcd")
+solution("abcdef")
+solution("abcdefg")
+solution("") 
+=end
+
+
+=begin 
+def spin_words(string)
+  #TODO -> return all words that have five or more letters reversed 
+  p string.split(" ").map{|v| v.length >=5 ? v.reverse : v}
+
+end
+
+spin_words("Hey fellow warriors") 
+=end
+
+
 
