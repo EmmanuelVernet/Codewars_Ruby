@@ -332,4 +332,121 @@ spin_words("Hey fellow warriors")
 =end
 
 
+=begin 
+def likes(names)
+  #your code here
+  if names.length == 0
+    p "no one likes this"
+  elsif names.length == 1
+    p "#{names[0]} likes this"
+  elsif names.length == 2
+    p "#{names[0]} and #{names[1]} like this"
+  elsif names.length > 2 and names.length <= 3 
+    p "#{names[0]}, #{names[1]} and #{names[2]} like this"
+  elsif names.length >= 4
+    p "#{names[0]}, #{names[1]} and #{names.length-2} others like this"
+  end
+end
+
+# two other possible solutions
+def likes(names)
+  case names.size
+  when 0 
+    "no one likes this"
+  when 1 
+    "#{names[0]} likes this"
+  when 2
+    "#{names[0]} and #{names[1]} like this"
+  when 3
+    "#{names[0]}, #{names[1]} and #{names[2]} like this"
+  else
+    "#{names[0]}, #{names[1]} and #{names.size - 2} others like this"
+  end
+end
+
+def likes(names)
+  return "no one likes this" if names.length == 0
+  return "#{names.first} likes this" if names.length == 1
+  return "#{names.first} and #{names.last} like this" if names.length == 2
+  return "#{names.first}, #{names[1]} and #{names.last} like this" if names.length == 3
+  return "#{names.first}, #{names[1]} and #{names.length-2} others like this"
+end
+
+likes([])
+likes(['Peter'])
+likes(['Jacob', 'Alex'])
+likes(['Max', 'John', 'Mark'])
+likes(['Alex', 'Jacob', 'Mark', 'Max']) 
+=end
+
+
+=begin 
+def find_it(seq)
+  p seq.find{ |n| seq.count(n).odd? } # .find (or .detect) finds the first occurence of n with a truthy value. Here, you find the first count of n that is odd and return n
+end 
+
+
+# other solutions
+def find_it(seq)
+  seq.uniq.each{|x| return x if seq.count(x).odd?}
+end
+
+def find_it(seq) 
+  seq.reduce(:^) #Needs further explanation on how it works
+end
+
+find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
+
+=end
+
+=begin
+def array_diff(a, b)
+  #your code here
+  p a-b
+end
+
+array_diff([1,2,3], [1,2])
+
+def create_phone_number(numbers)
+  #TODO
+  #p numbers[0..1]
+  p "(#{numbers[0..2].join}) #{numbers[3..5].join}-#{numbers[6..9].join}"
+
+end
+
+#other solution
+def createPhoneNumber(array)
+  '(%d%d%d) %d%d%d-%d%d%d%d' % array # using string formatting
+end
+
+def createPhoneNumber(digits)
+  area_code, prefix, *extension = digits.each_slice(3).map(&:join) # digit blocks with variables
+  "(#{area_code}) #{prefix}-#{extension.join}"
+end
+
+
+create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+=end
+
+=begin 
+def duplicate_count(text)
+  #your code here
+  new_text = text.downcase.split("") # init var with new split in array
+  new_text.uniq.count{|n| new_text.count(n)>1} # select uniques, then loop over new_text split array and return if > 1
+  
+end
+
+ # Better Solution
+def duplicate_count(text)
+  ('a'..'z').count { |c| text.downcase.count(c) > 1 }
+end
+
+
+duplicate_count("abcdeaB")
+#duplicate_count("Indivisibilities")
+#duplicate_count("abcdeaa")
+
+=end
+
+
 
