@@ -448,5 +448,82 @@ duplicate_count("abcdeaB")
 
 =end
 
+=begin 
+def digital_root(n)
+  root = n.to_s.chars.map(&:to_i).sum
+  root > 9 ? digital_root(root) : root #reuse the function call inside if root is more than 9
+
+end
+
+digital_root(493193)
+=end
+
+=begin 
+def find_outlier(integers)
+  odd_num = []
+  even_num = []
+  integers.each{|n| n.odd? ? odd_num.push(n) : even_num.push(n) }
+  odd_num.length == 1 ? odd_num[0] : even_num[0] # condition ? if_true : if_false
+
+end
+
+find_outlier([1, 2, 3])
+find_outlier([0, 1, 2])
+
+#Better solution
+def find_outlier(integers)
+  integers.count(&:even?) > 1 ? integers.find(&:odd?) : integers.find(&:even?)
+end
+
+def find_outlier(integers)
+  odd, even = integers.partition(&:odd?)
+  odd.length > 1 ? even[0] : odd[0]
+end
+
+=end
+
+=begin 
+def is_valid_walk(walk)
+  if walk.length == 10 && walk.count('n') == walk.count('s') && walk.count('w') == walk.count('e')
+    p true
+  else
+    p false
+  end
+end
+is_valid_walk(['n','s','n','s','n','s','n','s','n','s']) #true
+is_valid_walk(['n','n','n','s','n','s','n','s','n','s']) #false
+
+#Other solution
+def isValidWalk(walk)
+  walk.length == 10 and walk.count('s') == walk.count('n') and walk.count('e') == walk.count('w')
+end
+
+=end
+
+=begin 
+def narcissistic?(value)
+  power = value.to_s.length
+  true ? value.digits.map{|d| d**power}.sum == value : false
+end
+
+#Other solution
+def narcissistic?( value )
+  value.digits.sum {|d| d ** value.to_s.size} == value
+end
+
+narcissistic?(1633)#false
+narcissistic?(153)#true
+
+=end
+
+
+
+
+
+
+
+
+
+
 
 
